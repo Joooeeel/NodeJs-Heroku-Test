@@ -1,0 +1,40 @@
+<%- include ('templates/cabecera.ejs', {tituloWeb : 'INICI' }) %>
+
+
+    <div class="container">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Descipcion</th>
+                    <th scope="col">Accion</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <% if (arrayMascotas.length> 0) { %>
+                    <% arrayMascotas.forEach(e=>{ %>
+                        <tr>
+                            <th scope="row">
+                                <%= e.id %>
+                            </th>
+                            <td>
+                                <%= e.name %>
+                            </td>
+                            <td>
+                                <%= e.description %>
+                            </td>
+                            <td>@mdo</td>
+                        </tr>
+                        <% })%>
+                            <% } %>
+
+            </tbody>
+        </table>
+
+
+    </div>
+
+    <%- include ('templates/footer.ejs') %>
