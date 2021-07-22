@@ -1,7 +1,18 @@
 const express = require('express');
 const app = express();
 
+require('dotenv').config();
+
 const port = process.env.PORT || 3000;
+
+
+//Database connection
+const mongoose = require('mongoose');
+
+
+const uri = `mongodb+srv://${process.env.USER}:${process.env.PASS}@cluster0.vlx5n.mongodb.net/${process.env.DBNAME}?retryWrites=true&w=majority`;
+
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => console.log('base de datos conectada')).catch(e => console.log(e))
 
 //motor de plantilla
 app.set("view engine", "ejs");
